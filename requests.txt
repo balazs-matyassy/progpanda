@@ -1,0 +1,95 @@
+1. GET http://127.0.0.1:8080/drinks >>>>
+
+@GetMapping(value = {"/", "/drinks"})
+public String getDrinks(Model model) {}
+
+2. RESPONSE <<<<
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drinks</title>
+</head>
+<body>
+<h1>New Drink</h1>
+<form action="/drinks" method="post">
+    <table>
+        <tr>
+            <th>Név:</th>
+            <td><input type="text" id="name" name="name" value="Pista" /></td>
+        </tr>
+        <tr>
+            <th>Mennyiség:</th>
+            <td><input type="number" id="quantity" name="quantity" value="123" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">Create order</button></td>
+        </tr>
+    </table>
+</form>
+<h1>Drink orders:</h1>
+<table>
+    <tr>
+        <th>Id:</th>
+        <th>Name:</th>
+        <th>Quantity:</th>
+    </tr>
+</table>
+</body>
+</html>
+
+3. POST http://127.0.0.1:8080/drinks >>>>
+name: Juice
+quantity: 1
+
+4. HTTP REDIRECT http://127.0.0.1:8080/drinks <<<<
+Nincs HTML válasz, hanem utasítjuk a böngészőt, hogy nézze meg a http://127.0.0.1:8080/drinks alatti oldalt.
+
+5. GET http://127.0.0.1:8080/drinks >>>>
+
+6. RESPONSE <<<<
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drinks</title>
+</head>
+<body>
+<h1>New Drink</h1>
+<form action="/drinks" method="post">
+    <table>
+        <tr>
+            <th>Név:</th>
+            <td><input type="text" id="name" name="name" value="Pista" /></td>
+        </tr>
+        <tr>
+            <th>Mennyiség:</th>
+            <td><input type="number" id="quantity" name="quantity" value="123" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">Create order</button></td>
+        </tr>
+    </table>
+</form>
+<h1>Drink orders:</h1>
+<table>
+    <tr>
+        <th>Id:</th>
+        <th>Name:</th>
+        <th>Quantity:</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Beer</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Juice</td>
+        <td>1</td>
+    </tr>
+</table>
+</body>
+</html>
