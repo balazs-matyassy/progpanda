@@ -23,8 +23,8 @@ public class DrinkController {
 
     @GetMapping(value = {"/", "/drinks"})
     public String getDrinks(Model model) {
-        // List<Drink> drinks = drinkService.getAll();
-        // model.addAttribute("drinks", drinks);
+        List<Drink> drinks = drinkService.getAll();
+        model.addAttribute("drinks", drinks);
         return "drinks";
     }
 
