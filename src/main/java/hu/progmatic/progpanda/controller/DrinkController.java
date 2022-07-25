@@ -24,7 +24,7 @@ public class DrinkController {
     @GetMapping(value = {"/", "/drinks"})
     public String getDrinks(Model model) {
         List<Drink> drinks = drinkService.getAll();
-        model.addAttribute("newDrink", new Drink(null, "Pista", 123));
+        model.addAttribute("newDrink", new Drink());
         model.addAttribute("drinks", drinks);
         return "drinks";
     }
