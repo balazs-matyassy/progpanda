@@ -15,6 +15,7 @@ public class DrinkController {
     @Autowired
     DrinkService drinkService;
 
+    // [3.]
     @PostMapping("/drinks")
     public String newDrink(Drink drink, Model model) {
         drinkService.saveDrink(drink);
@@ -24,6 +25,7 @@ public class DrinkController {
     @GetMapping(value = {"/", "/drinks"})
     public String getDrinks(Model model) {
         List<Drink> drinks = drinkService.getAll();
+        // [1.]
         model.addAttribute("newDrink", new Drink());
         model.addAttribute("drinks", drinks);
         return "drinks";
