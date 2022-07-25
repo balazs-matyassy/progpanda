@@ -8,6 +8,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+// A @Service egy olyan @Component (ezt is megtalálja a Spring és automatikusan beanként bekerül a kontextusba),
+// aminek az a feladata, hogy szolgáltatásokat nyújtson az alkalmazás többi részének.
+// Ez a @Service konkrétan az adatbázis szimulációjáért felelős.
+// Adattárolásért felelős szolgáltatás.
+// Meg lehetett volna @Component annotációval is valósítani, de így sokkal jobban látszik, hogy ez nem egy általános bean.
 @Service
 public class DrinkService {
     private int counter = 0;
