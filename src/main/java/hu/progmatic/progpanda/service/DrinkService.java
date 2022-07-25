@@ -13,6 +13,11 @@ public class DrinkService {
     private int counter = 0;
     private Map<Integer, Drink> drinks = new TreeMap<>();
 
+    public DrinkService() {
+        saveDrink(new Drink(null, "Beer", 2));
+        saveDrink(new Drink(null, "Wine", 3));
+    }
+
     public List<Drink> getAll() {
         return new ArrayList<>(drinks.values());
     }

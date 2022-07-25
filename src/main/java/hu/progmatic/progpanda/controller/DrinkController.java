@@ -27,4 +27,9 @@ public class DrinkController {
         // model.addAttribute("drinks", drinks);
         return "drinks";
     }
+
+    @GetMapping("/conditions")
+    public String displayConditions() {
+        return "conditions";
+    }
 }
