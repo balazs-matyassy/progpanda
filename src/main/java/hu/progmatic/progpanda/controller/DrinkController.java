@@ -15,15 +15,16 @@ public class DrinkController {
     @Autowired
     DrinkService drinkService;
 
-    /* @PostMapping("/drinks")
+    @PostMapping("/drinks")
     public String newDrink(Drink drink, Model model) {
         drinkService.saveDrink(drink);
         return "redirect:/drinks";
-    } */
+    }
 
     @GetMapping(value = {"/", "/drinks"})
     public String getDrinks(Model model) {
         List<Drink> drinks = drinkService.getAll();
+        model.addAttribute("newDrink", new Drink(null, "Pista", 123));
         model.addAttribute("drinks", drinks);
         return "drinks";
     }
